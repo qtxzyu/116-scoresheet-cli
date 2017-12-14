@@ -37,7 +37,20 @@ describe('getChildMenuString()', () => {
 });
 
 describe("addStudentAchievement()", () => {
-	it('input the right format of studentinfo'), () => {
-		
-	}
+	it('input the right format of studentinfo', () => {
+		let num = '1';
+		let inputString = '姓名,学号,民族,班级,学科:成绩,学科:成绩,学科:成绩,学科:成绩';
+		let name = inputString.split(',')[0];
+		spyOn(console, 'log');
+		main(num, inputString);
+		expect(console.log).toHaveBeenCalledWith('学生'+ name + '的成绩被添加');
+	});
+	it('input the right format of studentinfo', () => {
+		let num = '1';
+		let inputString = '姓名,学号,民族,学科:成绩,学科:成绩,学科:成绩,学科:成绩';
+		let name = inputString.split(',')[0];
+		spyOn(console, 'log');
+		main(num, inputString);
+		expect(console.log).toHaveBeenCalledWith('请输入学生信息（格式：姓名, 学号, 民族, 班级, 学科: 成绩, ...');
+	});
 });
